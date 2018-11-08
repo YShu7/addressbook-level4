@@ -3,11 +3,7 @@ package seedu.saveit.model;
 import static java.util.Objects.requireNonNull;
 import static seedu.saveit.commons.util.CollectionUtil.requireAllNonNull;
 
-import java.util.ArrayList;
-import java.util.HashSet;
-import java.util.Iterator;
-import java.util.List;
-import java.util.Set;
+import java.util.*;
 
 import javafx.collections.ObservableList;
 import seedu.saveit.commons.core.directory.Directory;
@@ -25,6 +21,7 @@ public class SaveIt implements ReadOnlySaveIt {
 
     private final UniqueIssueList issues;
     private Directory currentDirectory;
+    private Comparator<Issue> currentSortType;
 
 
     /*
@@ -37,6 +34,7 @@ public class SaveIt implements ReadOnlySaveIt {
     {
         issues = new UniqueIssueList();
         currentDirectory = new Directory(0, 0);
+        currentSortType = null;
     }
 
     public SaveIt() {}
@@ -79,12 +77,20 @@ public class SaveIt implements ReadOnlySaveIt {
     }
 
     /**
+     * Update the current sortType.
+     */
+    public void setSortType(Comparator<Issue> sortType) {
+        currentSortType = sortType;
+    }
+
+    /**
      * Resets the existing data of this {@code SaveIt} with {@code newData}.
      */
     public void resetData(ReadOnlySaveIt newData) {
         requireNonNull(newData);
         setIssues(newData.getIssueList());
         setCurrentDirectory(newData.getCurrentDirectory());
+        setSortType(newData.getCurrentSortType());
     }
 
     //// issue-level operations
@@ -231,6 +237,11 @@ public class SaveIt implements ReadOnlySaveIt {
     @Override
     public Directory getCurrentDirectory() {
         return currentDirectory;
+    }
+
+    @Override
+    public Comparator getCurrentSortType() {
+        return currentSortType;
     }
 
     @Override

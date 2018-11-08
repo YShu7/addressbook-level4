@@ -15,6 +15,7 @@ import seedu.saveit.commons.core.Config;
 import seedu.saveit.commons.core.EventsCenter;
 import seedu.saveit.commons.core.LogsCenter;
 import seedu.saveit.commons.core.index.Index;
+import seedu.saveit.commons.events.model.SortTypeChangedEvent;
 import seedu.saveit.commons.events.storage.DataSavingExceptionEvent;
 import seedu.saveit.commons.events.ui.ChangeDirectoryRequestEvent;
 import seedu.saveit.commons.events.ui.JumpToListRequestEvent;
