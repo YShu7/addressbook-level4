@@ -17,7 +17,7 @@ import static seedu.saveit.testutil.TypicalIssues.getTypicalSaveIt;
 
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.HashSet;
+import java.util.LinkedHashSet;
 import java.util.List;
 
 import org.junit.Before;
@@ -75,7 +75,7 @@ public class SortCommandTest {
         IssueSort issueSort = prepareIssueSort(IssueSort.TAG_SORT);
         String expectedMessage = String.format(SortCommand.MESSAGE_SUCCESS, issueSort.getSortType());
         Issue issue = new Issue(new IssueStatement("new SOLUTION_C++ problem"),
-                new Description("only for test"), new ArrayList<>(), new HashSet<>());
+                new Description("only for test"), new ArrayList<>(), new LinkedHashSet<>());
 
         expectedModel.updateFilteredAndSortedIssueList(issueSort.getComparator());
         expectedModel.addIssue(issue);

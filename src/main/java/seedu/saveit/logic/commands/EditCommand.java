@@ -10,7 +10,7 @@ import static seedu.saveit.logic.parser.CliSyntax.PREFIX_TAG;
 
 import java.util.ArrayList;
 import java.util.Collections;
-import java.util.HashSet;
+import java.util.LinkedHashSet;
 import java.util.List;
 import java.util.Optional;
 import java.util.Set;
@@ -269,7 +269,7 @@ public class EditCommand extends Command {
          * Sets {@code tags} to this object's {@code tags}. A defensive copy of {@code tags} is used internally.
          */
         public void setTags(Set<Tag> tags) {
-            this.tags = (tags != null) ? new HashSet<>(tags) : null;
+            this.tags = (tags != null) ? new LinkedHashSet<>(tags) : null;
         }
 
         /**

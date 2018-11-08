@@ -1,7 +1,7 @@
 package seedu.saveit.logic.parser;
 
 import java.util.Arrays;
-import java.util.HashSet;
+import java.util.LinkedHashSet;
 import java.util.Set;
 
 import seedu.saveit.commons.core.Messages;
@@ -21,7 +21,7 @@ public class SortCommandParser implements Parser<SortCommand> {
      */
     public SortCommand parse(String args) throws ParseException {
         String trimmedArgs = args.trim();
-        Set<String> sortTypes = new HashSet<>();
+        Set<String> sortTypes = new LinkedHashSet<>();
         sortTypes.add(IssueSort.EMPTY_SORT);
         sortTypes.add(IssueSort.CHRONOLOGICAL_SORT);
         sortTypes.add(IssueSort.FREQUENCY_SORT);
